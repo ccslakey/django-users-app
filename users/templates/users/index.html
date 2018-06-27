@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+    <p>
+      Welcome, {{ user.get_username }}. Thanks for logging in. You can see your user profile
+      <a href="{% url 'users:detail' user.id %}">here</a>
+      You're at the users index. We have {{ num_users }} users signed up so far!
+    </p>
+
+{% else %}
+    <p>Welcome, new user. Please log in.</p>
+{% endif %}
+
+{% endblock %}
